@@ -1,10 +1,10 @@
 import './App.css';
-import Fetching from './Fetching';
+import FetchingAllData from './FetchingAllData';
 
 function App() {
   return (
     <div className="App">
-      <Fetching/>
+      <FetchingAllData/>
     </div>
   );
 }

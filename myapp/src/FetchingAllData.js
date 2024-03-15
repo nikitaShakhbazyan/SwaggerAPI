@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Fetching = () => {
+const FetchingAllData = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ const Fetching = () => {
   );
 };
 
-export default Fetching
+export default FetchingAllData
