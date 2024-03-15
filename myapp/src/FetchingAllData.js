@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllData,deleteData } from './fetch/fetchData';
+import { fetchAllData, deleteData } from './fetch/fetchData';
+import './FetchingData.css';
+import { Link } from 'react-router-dom';
 
 const FetchingAllData = () => {
   const [data, setData] = useState([]);
@@ -14,16 +16,30 @@ const FetchingAllData = () => {
       }
     };
     fetchData();
-  }, [data]);
+  }, []);
 
   const handleDelete = async (taskId) => {
     try {
       await deleteData(taskId);
-      // После успешного удаления обновите состояние данных
-      const updatedData = data.filter(item => item.id !== taskId);
-      setData(updatedData);
+      // Удаление задачи из текущего состояния
+      setData(prevData => prevData.filter(item => item.id !== taskId));
     } catch (error) {
       console.error('Error deleting task:', error);
+    }
+  };
+
+  const handleChangeStatus = async (taskId) => {
+    try {
+      // Отправка запроса на сервер для изменения статуса
+      const updatedData = data.map(item => {
+        if (item.id === taskId) {
+          return { ...item, status: !item.status };
+        }
+        return item;
+      });
+      setData(updatedData); // Обновление состояния после получения ответа от сервера
+    } catch (error) {
+      console.error('Error changing task status:', error);
     }
   };
 
@@ -32,10 +48,19 @@ const FetchingAllData = () => {
       <h2>Data:</h2>
       <div>
         {data.map((item) => (
-          <div key={item.id} style={{border:'2px solid red'}}>
+          <div key={item.id} style={{ border: '2px solid red' }}>
             <h2>Id : {item.id}</h2>
             <h1>Title : {item.title}</h1>
-            <h2>Status : {item.status}</h2>
+            <h2>Status : 
+              <span
+                className={item.status ? "greenStatus" : "redStatus"}
+                onClick={() => handleChangeStatus(item.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                {item.status ? "DONE" : "PENDING"}
+              </span>
+            </h2>
+            <h3>For more info please click <Link to={'/'}>here</Link></h3>
             <h2>Created at :{item.createdAt}</h2>
             <button onClick={() => handleDelete(item.id)}>Delete Task</button>
           </div>
