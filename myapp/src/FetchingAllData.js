@@ -1,44 +1,48 @@
 import React, { useState, useEffect } from 'react';
+import { fetchAllData,deleteData } from './fetch/fetchData';
 
 const FetchingAllData = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetching = async () => {
+    const fetchData = async () => {
       try {
-        const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxMDQ5NzY0NCwiZXhwIjoxNzEwNTAwNjQ0fQ.igi7cibbTY1O-mb4lFL1VKNglwIaYCPO6jeqdqHjrjM'; 
-        const res = await fetch('http://169.155.57.78/v1/tasks', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const jsonData = await res.json();
-        setData(jsonData.content);
+        const jsonData = await fetchAllData();
+        setData(jsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-    fetching();
-  }, []);
+    fetchData();
+  }, [data]);
+
+  const handleDelete = async (taskId) => {
+    try {
+      await deleteData(taskId);
+      // После успешного удаления обновите состояние данных
+      const updatedData = data.filter(item => item.id !== taskId);
+      setData(updatedData);
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
+  };
 
   return (
     <div>
       <h2>Data:</h2>
       <div>
-        {data.map((item) => {
-          return  <div key={item.id}>
-           <h2>Id : {item.id}</h2>
-           <h1>Title : {item.title}</h1>
-           <h2>Status : {item.status}</h2>
-           <h2>Created at :{item.createdAt}</h2>
-            </div>
-        })}
+        {data.map((item) => (
+          <div key={item.id} style={{border:'2px solid red'}}>
+            <h2>Id : {item.id}</h2>
+            <h1>Title : {item.title}</h1>
+            <h2>Status : {item.status}</h2>
+            <h2>Created at :{item.createdAt}</h2>
+            <button onClick={() => handleDelete(item.id)}>Delete Task</button>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default FetchingAllData
+export default FetchingAllData;
