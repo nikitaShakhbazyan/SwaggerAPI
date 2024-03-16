@@ -1,7 +1,4 @@
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNTk5MzczLCJleHAiOjE3MTA1OTk2NzN9.RBb5_U2XPUx39_wyxkyKkfgfQ28_UADNWLPOA-GRYPg';
-
-const refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDU5NTM4MCwiZXhwIjoxNzEwNjgxNzgwfQ.KivPCri-G2DuTjYyf7TlKtPSIIBLINgiUNpCaBX0NX8'
-
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNjA2NDIzLCJleHAiOjE3MTA2MDY3MjN9.X_SgxCdb82DUAk9uWn2xOiup2gtymg7o_Z9hapZUxao';
 
 export const fetchAllData = async () => {
     try {

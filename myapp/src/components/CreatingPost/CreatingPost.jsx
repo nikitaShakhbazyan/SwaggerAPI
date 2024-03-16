@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { createData } from '../fetch/fetchData';
+import { createData } from '../../fetch/fetchData';
+import './CreatingPost.css'
 
 const CreatingPost = () => {
   const [data, setData] = useState({
@@ -26,11 +27,11 @@ const CreatingPost = () => {
     <div>
       <h2>Create Post</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='title-div'>
           <label htmlFor="title">Title:</label>
           <input type="text" id="title" name="title" value={data.title} onChange={handleChange} />
         </div>
-        <div>
+        <div className='descr-div'>
           <label htmlFor="description">Description:</label>
           <textarea id="description" name="description" value={data.description} onChange={handleChange} />
         </div>

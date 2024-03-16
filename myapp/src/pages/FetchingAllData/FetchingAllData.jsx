@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllData, deleteData } from '../fetch/fetchData';
-import '../styles/FetchingData.css';
+import { fetchAllData, deleteData } from '../../fetch/fetchData';
+import './FetchingData.css';
 import { Link } from 'react-router-dom';
 
 const FetchingAllData = () => {
   const [data, setData] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,11 +45,11 @@ const FetchingAllData = () => {
   };
 
   return (
-    <div>
+    <div className='mainDiv'>
       <h2>Data:</h2>
       <div className='fetch-div'>
         {data.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className='data-div'>
             <h2>Id : {item.id}</h2>
             <h1>Title : {item.title}</h1>
             <h2>Status : 
