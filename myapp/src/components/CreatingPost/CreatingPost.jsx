@@ -30,6 +30,7 @@ const CreatingPost = () => {
   
   return (
     <div>
+      <div className="creating-div">
       <button onClick={handleLogout}>Logout</button>
       <h2>Create Post</h2>
       <form onSubmit={handleSubmit}>
@@ -43,6 +44,7 @@ const CreatingPost = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      </div>
     </div>
   );
 };

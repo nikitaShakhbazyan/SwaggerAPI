@@ -1,24 +1,29 @@
-form {
+.creating-div {
+    width: 500px;
     height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    border-radius: 20px;
 }
 
-#title {
-    width: 150px;
-    height: 30px;
-    border-radius: 10px ;
-
-}
-#description {
-    width: 150px;
-    height: 30px;
-    border-radius: 10px ;
-}
-.title-div,.descr-div {
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+input,textarea {
+    width: 200px;
+    height: 35px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+button {
+    background-color: transparent;
+    width: 120px;
+    height: 35px;
+    border-radius: 10%;
+    border: 3px solid gold;
+    color: #ffff;
 }

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAllData, deleteData } from '../../fetch/fetchData';
-import './FetchingData.css';
 import { Link } from 'react-router-dom';
-
+import './FetchingData.css'
 const FetchingAllData = () => {
   const [data, setData] = useState([]);
 
@@ -30,19 +29,6 @@ const FetchingAllData = () => {
     }
   };
 
-  const handleChangeStatus = async (taskId) => {
-    try {
-      const updatedData = data.map(item => {
-        if (item.id === taskId) {
-          return { ...item, status: !item.status };
-        }
-        return item;
-      });
-      setData(updatedData);
-    } catch (error) {
-      console.error('Error changing task status:', error);
-    }
-  };
 
   return (
     <div className='mainDiv'>
@@ -53,13 +39,7 @@ const FetchingAllData = () => {
             <h2>Id : {item.id}</h2>
             <h1>Title : {item.title}</h1>
             <h2>Status : 
-              <span
-                className={item.status ? "greenStatus" : "redStatus"}
-                onClick={() => handleChangeStatus(item.id)}
-                style={{ cursor: 'pointer' }}
-              >
-                {item.status ? "DONE" : "PENDING"}
-              </span>
+                {item.status}
             </h2>
             <h3>For more info please click <Link to={'/'}>here</Link></h3>
             <h2>Created at :{item.createdAt}</h2>

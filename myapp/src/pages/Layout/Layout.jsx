@@ -13,11 +13,17 @@ const Layout = () => {
   return (
     <div className='mainDiv'>
     {isLoggedIn ?(
-      <div>
-    <CreatingPost/> 
-    <FetchingAllData/> 
+      <div className='dataDiv'>
+        <div className='creatingPostDiv'>
+        <CreatingPost/> 
+        </div>
+        <div className="fetchingDataDiv">
+        <FetchingAllData/> 
+        </div>
     </div>) :(
+      <div className='authDiv'>
       <Login isAuth={handleLogin}/>
+      </div>
     )
   }
     </div>

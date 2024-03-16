@@ -1,32 +1,13 @@
-.redStatus {
-    color: red;
-  }
-  
-  .greenStatus {
-    color: green;
-  }
-
-  .mainDiv {
-    background-color: bisque;
-    border-radius: 15px;
-    height: auto;
-  }
-  
-  .fetch-div {
+.fetch-div {
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 15px;
-  }
-
-  .data-div {
-    border: 2px solid blue;
-    box-shadow: 4px 4px 4px black;
-    
-  }
-
-  .mainDiv {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+    gap: 20px;
+}
+.data-div {
+    border: 3px solid gold;
+    border-radius: 17%;
+}
+.mainDiv {
+    border-radius: 10px;
+    border: 2px solid gray;
+}

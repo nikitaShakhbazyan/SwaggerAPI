@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css'
 
-
 const Login = ({isAuth}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -38,11 +37,11 @@ const Login = ({isAuth}) => {
       {error && <p>{error}</p>}
       <form className='input-form' onSubmit={handleSubmit} >
         <div>
-          <label>Username:</label>
+          <h1>Username:</h1>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div>
-          <label>Password:</label>
+          <h1>Password:</h1>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit">Login</button>
