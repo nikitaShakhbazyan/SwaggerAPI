@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAllData, deleteData } from '../fetch/fetchData';
-import './FetchingData.css';
+import '../styles/FetchingData.css';
 import { Link } from 'react-router-dom';
 
 const FetchingAllData = () => {
@@ -16,7 +16,7 @@ const FetchingAllData = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   const handleDelete = async (taskId) => {
     try {

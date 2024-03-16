@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import FetchingAllData from './FetchingAllData'
-import CreatingPost from './CreatingPost'
+import CreatingPost from '../components/CreatingPost'
 import Login from './Login';
 
 const Layout = () => {
