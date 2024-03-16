@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { createData } from './fetch/fetchData';
+import { createData } from '../fetch/fetchData';
 
 const CreatingPost = () => {
   const [data, setData] = useState({

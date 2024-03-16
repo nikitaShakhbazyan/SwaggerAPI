@@ -13,8 +13,8 @@ const Layout = () => {
     <div>
     {isLoggedIn ?(
       <div>
-    <CreatingPost/> 
     <FetchingAllData/> 
+    <CreatingPost/> 
     </div>) :(
       <Login isAuth={handleLogin}/>
     )

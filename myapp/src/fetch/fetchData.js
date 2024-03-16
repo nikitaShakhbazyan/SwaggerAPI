@@ -1,4 +1,4 @@
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNTQ4NzA3LCJleHAiOjE3MTA1NDkwMDd9.ltYgMQkpopYUOU8PGxtjXN4REzPGr69AlpQfpE3jCJI';
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNTQ5MDE4LCJleHAiOjE3MTA1NDkzMTh9.7P04nUhF78FMRVY1wvT2DaRLcWqUY9Rdv_J9RV1J3vU';
 
 export const fetchAllData = async () => {
     try {

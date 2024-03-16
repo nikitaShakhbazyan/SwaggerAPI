@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllData, deleteData } from './fetch/fetchData';
+import { fetchAllData, deleteData } from '../fetch/fetchData';
 import './FetchingData.css';
 import { Link } from 'react-router-dom';
 
@@ -21,8 +21,9 @@ const FetchingAllData = () => {
   const handleDelete = async (taskId) => {
     try {
       await deleteData(taskId);
-      // Удаление задачи из текущего состояния
       setData(prevData => prevData.filter(item => item.id !== taskId));
+      const updatedData = data.filter(item => item.id !== taskId);
+      setData(updatedData);
     } catch (error) {
       console.error('Error deleting task:', error);
     }
@@ -30,14 +31,13 @@ const FetchingAllData = () => {
 
   const handleChangeStatus = async (taskId) => {
     try {
-      // Отправка запроса на сервер для изменения статуса
       const updatedData = data.map(item => {
         if (item.id === taskId) {
           return { ...item, status: !item.status };
         }
         return item;
       });
-      setData(updatedData); // Обновление состояния после получения ответа от сервера
+      setData(updatedData);
     } catch (error) {
       console.error('Error changing task status:', error);
     }
