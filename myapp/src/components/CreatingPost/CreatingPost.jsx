@@ -23,8 +23,14 @@ const CreatingPost = () => {
       console.error('Error creating data:', error);
     }
   };
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    window.location.href = '/login';
+  };
+  
   return (
     <div>
+      <button onClick={handleLogout}>Logout</button>
       <h2>Create Post</h2>
       <form onSubmit={handleSubmit}>
         <div className='title-div'>
