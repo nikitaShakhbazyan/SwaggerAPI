@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import FetchingAllData from './FetchingAllData'
 import CreatingPost from '../components/CreatingPost'
-import Login from './Login';
+import Login from '../pages/LoginPage/Login';
+import '../styles/Layout.css'
 
 const Layout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,11 +11,11 @@ const Layout = () => {
     setIsLoggedIn(loggedIn);
   };
   return (
-    <div>
+    <div className='mainDiv'>
     {isLoggedIn ?(
       <div>
-    <FetchingAllData/> 
     <CreatingPost/> 
+    <FetchingAllData/> 
     </div>) :(
       <Login isAuth={handleLogin}/>
     )

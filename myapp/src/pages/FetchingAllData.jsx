@@ -46,9 +46,9 @@ const FetchingAllData = () => {
   return (
     <div>
       <h2>Data:</h2>
-      <div>
+      <div className='fetch-div'>
         {data.map((item) => (
-          <div key={item.id} style={{ border: '2px solid red' }}>
+          <div key={item.id}>
             <h2>Id : {item.id}</h2>
             <h1>Title : {item.title}</h1>
             <h2>Status : 

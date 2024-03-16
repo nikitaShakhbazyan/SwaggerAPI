@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../../styles/Login.css'
+
 
 const Login = ({isAuth}) => {
   const [username, setUsername] = useState('');
@@ -31,10 +33,10 @@ const Login = ({isAuth}) => {
   };
 
   return (
-    <div>
+    <div className='main'>
       <h2>Login</h2>
       {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
+      <form className='input-form' onSubmit={handleSubmit} >
         <div>
           <label>Username:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

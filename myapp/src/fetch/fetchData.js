@@ -1,4 +1,7 @@
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNTk1MzgwLCJleHAiOjE3MTA1OTU2ODB9.bLv-7xsubTOA86eOihYKGKAkCXR54_X0cUdwL_U-2Sk';
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNTk5MzczLCJleHAiOjE3MTA1OTk2NzN9.RBb5_U2XPUx39_wyxkyKkfgfQ28_UADNWLPOA-GRYPg';
+
+const refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDU5NTM4MCwiZXhwIjoxNzEwNjgxNzgwfQ.KivPCri-G2DuTjYyf7TlKtPSIIBLINgiUNpCaBX0NX8'
+
 
 export const fetchAllData = async () => {
     try {
@@ -15,9 +18,10 @@ export const fetchAllData = async () => {
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;
+
     }
   };
-  
+
 
   export const createData = async (formData) => {
     try {
@@ -59,4 +63,5 @@ export const fetchAllData = async () => {
       throw error; 
     }
   };
+  
   

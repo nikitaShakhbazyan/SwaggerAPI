@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route,Router,Routes} from 'react-router-dom'
 import FetchingAllData from '../pages/FetchingAllData'
-import Login from '../pages/Login'
+import Login from '../pages/LoginPage/Login'
 import Details from '../pages/Details'
 
 

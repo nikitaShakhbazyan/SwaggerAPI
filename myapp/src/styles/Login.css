@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+}
+
+@keyframes anim {
+    0% {
+        background: linear-gradient(45deg, #76F0C4, #8080FC, #79B9EE);
+    }
+    60% {
+        background: linear-gradient(65deg, #FB95A7, #B4A9EA, #FB95A7);
+    }
+    90% {
+        background: linear-gradient(85deg, #FB95A7, #B4A9EA, #FB95A7);
+    }
+    100% {
+        background: linear-gradient(130deg, #FB95A7, #B4A9EA, #FB95A7);
+    } 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 800px;
+    animation: anim 12s infinite;
+    animation-delay: 1.5s;
+}
+
+.input-form {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input {
+    height: 35px;
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+button {
+    width: 110px;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 15px;
+}

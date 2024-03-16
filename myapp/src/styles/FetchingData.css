@@ -5,4 +5,14 @@
   .greenStatus {
     color: green;
   }
+
+  .mainDiv {
+    background-color: bisque;
+    border-radius: 15px;
+    border: 4px solid gold;
+  }
   
+  .fetch-div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
