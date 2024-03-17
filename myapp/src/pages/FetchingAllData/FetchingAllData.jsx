@@ -29,6 +29,20 @@ const FetchingAllData = () => {
     }
   };
 
+  const handleChangeStatus = async (taskId) => {
+    try {
+      const updatedData = data.map(item => {
+        if (item.id === taskId) {
+          return { ...item, status: item.status === "DONE" ? "PENDING" : "DONE" };
+        }
+        return item;
+      });
+      setData(updatedData);
+    } catch (error) {
+      console.error('Error changing task status:', error);
+    }
+  };
+
 
   return (
     <div className='mainDiv'>
@@ -44,6 +58,9 @@ const FetchingAllData = () => {
             <h3>For more info please click <Link to={'/'}>here</Link></h3>
             <h2>Created at :{item.createdAt}</h2>
             <button onClick={() => handleDelete(item.id)}>Delete Task</button>
+            <button onClick={() => handleChangeStatus(item.id)}>
+              {item.status === "DONE" ? "Set as Pending" : "Set as Done"}
+            </button>
           </div>
         ))}
       </div>

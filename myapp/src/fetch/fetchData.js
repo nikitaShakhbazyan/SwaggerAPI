@@ -84,28 +84,51 @@ export const createData = async (formData) => {
 };
 
 export const deleteData = async (taskId) => {
-    try {
-        const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${accessToken}`
-            }
-        });
+  try {
+      const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${accessToken}`
+          }
+      });
 
-        if (res.status === 401) {
-            await refreshTokenRequest();
-            return deleteData(taskId);
-        }
+      if (res.status === 401) {
+          await refreshTokenRequest();
+          return await deleteData(taskId);
+      }
 
-        if (!res.ok) {
-            throw new Error('Network response was not ok');
-        }
+      if (!res.ok) {
+          throw new Error('Network response was not ok');
+      }
 
-        const jsonData = await res.json();
-        return jsonData;
-    } catch (error) {
-        console.error('Error deleting data:', error);
-        throw error;
-    }
+      const jsonData = await res.json();
+      return jsonData;
+  } catch (error) {
+      console.error('Error deleting data:', error);
+      throw error;
+  }
 };
+
+// export const updateData = async (taskId, newData) => {
+//   try {
+//     const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
+//       method: 'PUT',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${accessToken}`
+//       },
+//       body: JSON.stringify(newData), 
+//     });
+
+//     if (!res.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+
+//     const jsonData = await res.json();
+//     return jsonData;
+//   } catch (error) {
+//     console.error('Error updating data:', error);
+//     throw error;
+//   }
+// };

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { createData } from '../../fetch/fetchData';
+import { createData } from '../../../fetch/fetchData';
 import './CreatingPost.css'
 
 const CreatingPost = () => {
@@ -31,7 +31,7 @@ const CreatingPost = () => {
   return (
     <div>
       <div className="creating-div">
-      <button onClick={handleLogout}>Logout</button>
+      <button className='Logout-btn' onClick={handleLogout}>Logout</button>
       <h2>Create Post</h2>
       <form onSubmit={handleSubmit}>
         <div className='title-div'>

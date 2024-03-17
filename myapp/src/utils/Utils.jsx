@@ -2,7 +2,7 @@ import React from 'react'
 import {Route,Router,Routes} from 'react-router-dom'
 import FetchingAllData from '../pages/FetchingAllData'
 import Login from '../pages/LoginPage/Login'
-import Details from '../pages/Details'
+import NotFound from '../pages/NotFound'
 
 
 const Utils = () => {
@@ -11,7 +11,7 @@ const Utils = () => {
         <Routes>
             <Route path='/FetchingAllData' element={<FetchingAllData/>} />
             <Route path='/' element={<Login/>} />
-            <Route path='/Details' element={<Details/>} />
+            <Route path='*' element={<NotFound/>} />
         </Routes>
     </Router>
   )
