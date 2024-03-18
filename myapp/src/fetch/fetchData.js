@@ -1,5 +1,5 @@
 let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNjMyMjUxLCJleHAiOjE3MTA2MzI1NTF9.CJ6vkwuVOBpCa3O11WC3-K4vv-4DnMDViN84v1bnFXo';
-let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDYzMjI1MSwiZXhwIjoxNzEwNzE4NjUxfQ.DUYGjZMUBeBiP2Qqz3bXxS18J0A0t-Q_H2g8YSW9feE';
+let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDcxNjQxNCwiZXhwIjoxNzEwODAyODE0fQ.Kli9kJOsWezd1RVNPXwxiUAl_utYoMPlpud-gr5Ts8Y';
 
 export const setTokens = (newAccessToken, newRefreshToken) => {
     accessToken = newAccessToken;
@@ -110,25 +110,29 @@ export const deleteData = async (taskId) => {
   }
 };
 
-// export const updateData = async (taskId, newData) => {
-//   try {
-//     const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${accessToken}`
-//       },
-//       body: JSON.stringify(newData), 
-//     });
+export const getData = async (taskId) => {
+  try {
+    const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
 
-//     if (!res.ok) {
-//       throw new Error('Network response was not ok');
-//     }
+    if (res.status === 401) {
+      await refreshTokenRequest(); 
+      return await getData(taskId); 
+    }
 
-//     const jsonData = await res.json();
-//     return jsonData;
-//   } catch (error) {
-//     console.error('Error updating data:', error);
-//     throw error;
-//   }
-// };
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const jsonData = await res.json();
+    return jsonData;
+  } catch (error) {
+    console.error('Error updating data:', error);
+    throw error;
+  }
+};

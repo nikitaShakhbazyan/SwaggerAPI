@@ -25,7 +25,7 @@ const CreatingPost = () => {
   };
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    window.location.href = '/login';
+    window.location.href = '/';
   };
   
   return (

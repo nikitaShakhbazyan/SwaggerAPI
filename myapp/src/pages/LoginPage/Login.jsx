@@ -25,6 +25,7 @@ const Login = ({isAuth}) => {
       const { accessToken } = await response.json();
 
       localStorage.setItem('accessToken', accessToken);
+      console.log(accessToken)
       isAuth(true)
     } catch (error) {
       setError('Authentication failed. Please check your credentials.');
