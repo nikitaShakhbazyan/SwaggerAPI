@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
+import FetchingAllData from '../FetchingAllData/FetchingAllData'
+import CreatingPost from '../../components/CreatingPost/CreatingPost/CreatingPost'
 import Login from '../LoginPage/Login';
-import Main from '../Main/Main';
 import './Layout.css'
+import Main from '../Main/Main';
 
 const Layout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,4 +26,4 @@ const Layout = () => {
   )
 }
 
-export default Layout;
+export default Layout

@@ -1,5 +1,5 @@
 let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNjMyMjUxLCJleHAiOjE3MTA2MzI1NTF9.CJ6vkwuVOBpCa3O11WC3-K4vv-4DnMDViN84v1bnFXo';
-let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDcxNjQxNCwiZXhwIjoxNzEwODAyODE0fQ.Kli9kJOsWezd1RVNPXwxiUAl_utYoMPlpud-gr5Ts8Y';
+let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDcyNTc5MywiZXhwIjoxNzEwODEyMTkzfQ.Q6_8JsB0vb9yHxP3cgJjbdgeR3BYdefAbannKZu__7g';
 
 export const setTokens = (newAccessToken, newRefreshToken) => {
     accessToken = newAccessToken;
@@ -119,11 +119,6 @@ export const getData = async (taskId) => {
         Authorization: `Bearer ${accessToken}`
       }
     });
-
-    if (res.status === 401) {
-      await refreshTokenRequest(); 
-      return await getData(taskId); 
-    }
 
     if (!res.ok) {
       throw new Error('Network response was not ok');

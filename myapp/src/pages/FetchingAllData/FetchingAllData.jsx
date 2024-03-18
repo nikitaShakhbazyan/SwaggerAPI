@@ -30,6 +30,7 @@ const FetchingAllData = () => {
   };
 
 
+
   return (
     <div className='mainDiv'>
       <h2>Data:</h2>
