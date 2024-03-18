@@ -1,5 +1,5 @@
 let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNjMyMjUxLCJleHAiOjE3MTA2MzI1NTF9.CJ6vkwuVOBpCa3O11WC3-K4vv-4DnMDViN84v1bnFXo';
-let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDcyNTc5MywiZXhwIjoxNzEwODEyMTkzfQ.Q6_8JsB0vb9yHxP3cgJjbdgeR3BYdefAbannKZu__7g';
+let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDc3MjA2OSwiZXhwIjoxNzEwODU4NDY5fQ.1NWX8j5z6-ke3g2yVXcKM5zduYnXrfSk65yM44CNKTw';
 
 export const setTokens = (newAccessToken, newRefreshToken) => {
     accessToken = newAccessToken;
@@ -131,3 +131,33 @@ export const getData = async (taskId) => {
     throw error;
   }
 };
+
+export const updateTask = async (taskId, updatedTask) => {
+    try {
+      const res = await fetch(`http://169.155.57.78/v1/tasks/${taskId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(updatedTask)
+      });
+  
+      if (res.status === 401) {
+        await refreshTokenRequest();
+        return await updateTask(taskId, updatedTask);
+      }
+  
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const jsonData = await res.json();
+      return jsonData;
+    } catch (error) {
+      console.error('Error updating task:', error);
+      throw error;
+    }
+  };
+  
+  
