@@ -39,3 +39,7 @@ select option,#statusFilter {
 .yellow {
     color: yellow;
 }
+
+.data-div button {
+    color: white;
+}
