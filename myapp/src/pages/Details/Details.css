@@ -24,3 +24,9 @@ body {
     padding: 15px;
     border-radius: 15px;
 }
+.modal {
+    border: 3px solid purple;
+    padding: 20px 10px;
+    border-radius: 15px;
+    background-color: rgb(182, 179, 179,0.4);
+}

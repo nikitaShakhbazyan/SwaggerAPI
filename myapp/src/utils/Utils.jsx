@@ -14,7 +14,6 @@ const Utils = () => {
             <Route path='/' element={<Login/>} />
             <Route path='*' element={<NotFound/>} />
             <Route path='/details/:taskId' element={<Details/>} />
-            <Route path='/main' element={<Main/>} />
         </Routes>
   )
 }

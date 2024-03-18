@@ -6,6 +6,7 @@ import './Details.css';
 const Details = () => {
     const { taskId } = useParams();
     const [task, setTask] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const fetchTask = async () => {
@@ -26,10 +27,15 @@ const Details = () => {
                 const updatedTask = { ...task, status: status };
                 await updateTask(taskId, updatedTask);
                 setTask(updatedTask);
+                setShowModal(true);
             }
         } catch (error) {
             console.error('Error updating task status:', error);
         }
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     const redirectToMainPage = () => {
@@ -39,10 +45,17 @@ const Details = () => {
     return (
         <div className='mainDiv-Details'>
             <div className='btn-div'>
-            <Link className='btn' to={'/'}>Logout</Link>
-            <Link className='btn' onClick={redirectToMainPage}>Go to Main Page</Link>
+                <Link className='btn' to={'/'}>Logout</Link>
             </div>
-            Details of {taskId} id
+           <h2> Details of {taskId} id</h2>
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <button className="close" onClick={closeModal}>Close Window</button>
+                        <p>Now you changed a task status! Better will be logout and rest! It's enough for today, you did a really good job!!</p>
+                    </div>
+                </div>
+            )}
             {task && (
                 <div key={task.id}>
                     <h1>Title : {task.title} </h1>
@@ -53,6 +66,7 @@ const Details = () => {
                     <button onClick={() => handleStatusChange('COMPLETED')}>COMPLETED</button>
                 </div>
             )}
+          
         </div>
     );
 };
