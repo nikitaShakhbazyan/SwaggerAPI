@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { createData } from '../../../fetch/fetchData';
 import './CreatingPost.css'
 
+
 const CreatingPost = () => {
   const [data, setData] = useState({
     title:'',
@@ -25,7 +26,7 @@ const CreatingPost = () => {
   };
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    window.location.href = '/login';
+    window.location.href = '/';
   };
   
   return (
@@ -39,10 +40,10 @@ const CreatingPost = () => {
           <input type="text" id="title" name="title" value={data.title} onChange={handleChange} />
         </div>
         <div className='descr-div'>
-          <label htmlFor="description">Description:</label>
+          <label className='descr' htmlFor="description">Description:</label>
           <textarea id="description" name="description" value={data.description} onChange={handleChange} />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Create</button>
       </form>
       </div>
     </div>

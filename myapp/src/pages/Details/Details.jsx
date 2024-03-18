@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getData, updateTask } from '../../fetch/fetchData';
-import { Link } from 'react-router-dom';
 import './Details.css';
 
 const Details = () => {
@@ -33,11 +32,16 @@ const Details = () => {
         }
     };
 
+    const redirectToMainPage = () => {
+        window.location.href = '/main';
+    };
+
     return (
         <div className='mainDiv-Details'>
-            <Link to={'/'}>Back to SignIn</Link>
-            <Link to={'/main'}>Back to Main</Link>
-
+            <div className='btn-div'>
+            <Link className='btn' to={'/'}>Logout</Link>
+            <Link className='btn' onClick={redirectToMainPage}>Go to Main Page</Link>
+            </div>
             Details of {taskId} id
             {task && (
                 <div key={task.id}>

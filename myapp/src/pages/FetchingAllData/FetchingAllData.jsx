@@ -41,7 +41,7 @@ const FetchingAllData = () => {
             <h1>Title : {item.title}</h1>
             <h2>Status : 
                 {item.status}
-            </h2>
+            </h2> 
             <h3>For more info please click <Link to={`/details/${item.id}`}>here</Link></h3>
             <h2>Created at :{item.createdAt}</h2>
             <button onClick={() => handleDelete(item.id)}>Delete Task</button>

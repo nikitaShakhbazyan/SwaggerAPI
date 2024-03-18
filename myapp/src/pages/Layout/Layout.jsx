@@ -1,9 +1,7 @@
 import React,{useState} from 'react'
-import FetchingAllData from '../FetchingAllData/FetchingAllData'
-import CreatingPost from '../../components/CreatingPost/CreatingPost/CreatingPost'
 import Login from '../LoginPage/Login';
-import './Layout.css'
 import Main from '../Main/Main';
+import './Layout.css'
 
 const Layout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

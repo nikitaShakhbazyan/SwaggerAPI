@@ -5,11 +5,16 @@
 }
 .data-div {
     border: 3px solid gold;
-    border-radius: 17%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 12%;
+    padding: 20px;
+    box-shadow: 6px 7px 7px goldenrod;
 }
 .mainDiv {
     border-radius: 10px;
-    border: 4px solid royalblue;
     padding: 10px;
 }
 button {

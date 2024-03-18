@@ -2,12 +2,9 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    border-radius: 20px;
-    background: rgb(99,117,158);
-    background: linear-gradient(90deg, rgba(99,117,158,1) 0%, rgba(9,121,84,1) 53%, rgba(0,212,255,1) 100%);
 }
 
 form {
@@ -27,5 +24,10 @@ button {
     height: 35px;
     border-radius: 10%;
     border: 3px solid gold;
-    color: #ffff;
+    color: black;
+    cursor: pointer;
+}
+ 
+.descr {
+    margin-bottom: 50px;
 }
