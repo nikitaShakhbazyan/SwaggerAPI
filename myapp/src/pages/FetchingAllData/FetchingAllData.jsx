@@ -32,6 +32,19 @@ const FetchingAllData = () => {
     setFilteredStatus(e.target.value);
   };
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'PENDING':
+        return 'orange';
+      case 'IN_PROGRESS':
+        return 'yellow';
+      case 'COMPLETED':
+        return 'green';
+      default:
+        return '';
+    }
+  };
+
   const filteredData = data.filter(item => filteredStatus === 'all' || item.status === filteredStatus);
 
   return (
@@ -48,12 +61,10 @@ const FetchingAllData = () => {
       </div>
       <div className='fetch-div'>
         {filteredData.map((item) => (
-          <div key={item.id} className='data-div'>
+          <div key={item.id} className={`data-div ${getStatusColor(item.status)}`}>
             <h2>Id : {item.id}</h2>
             <h1>Title : {item.title}</h1>
-            <h2>Status : 
-                {item.status}
-            </h2> 
+            <h2>Status : {item.status}</h2> 
             <h3>For more info please click <Link to={`/details/${item.id}`}>here</Link></h3>
             <h2>Created at :{item.createdAt}</h2>
             <button onClick={() => handleDelete(item.id)}>Delete Task</button>

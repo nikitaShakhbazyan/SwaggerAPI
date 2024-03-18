@@ -1,5 +1,5 @@
-let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwNjMyMjUxLCJleHAiOjE3MTA2MzI1NTF9.CJ6vkwuVOBpCa3O11WC3-K4vv-4DnMDViN84v1bnFXo';
-let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDc3MjA2OSwiZXhwIjoxNzEwODU4NDY5fQ.1NWX8j5z6-ke3g2yVXcKM5zduYnXrfSk65yM44CNKTw';
+let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrIiwiaWF0IjoxNzEwODAxOTE4LCJleHAiOjE3MTA4MDIyMTh9.gS3N9EvQGDJlzTWvLW3mXS0aGS_LJBTGSCllxzg5eFs';
+let refreshToken = 'eyJhbGciOiJIUzI1NiJ9.eyJpc1JlZnJlc2hUb2tlbiI6dHJ1ZSwic3ViIjoibmljayIsImlhdCI6MTcxMDgwMjYwMiwiZXhwIjoxNzEwODg5MDAyfQ.YWVJFsHzBJm3VMzrVsKfhMcR9WMWwmqA1oBOFEIYcIQ';
 
 export const setTokens = (newAccessToken, newRefreshToken) => {
     accessToken = newAccessToken;
