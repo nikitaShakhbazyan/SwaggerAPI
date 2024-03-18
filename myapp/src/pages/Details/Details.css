@@ -21,7 +21,7 @@ body {
     color: white;
     text-decoration: none;
     border: 3px solid gold;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
 }
 .modal {
@@ -29,4 +29,20 @@ body {
     padding: 20px 10px;
     border-radius: 15px;
     background-color: rgb(182, 179, 179,0.4);
+}
+.modal-content {
+    width: 100%;
+    padding: 10px;
+}
+.close {
+    color: white;
+    width: 30px;
+    border-radius: 50%;
+}
+#statusFilter {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    margin: 15px;
+
 }

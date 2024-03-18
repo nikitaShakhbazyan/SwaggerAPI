@@ -38,10 +38,6 @@ const Details = () => {
         setShowModal(false);
     };
 
-    const redirectToMainPage = () => {
-        window.location.href = '/main';
-    };
-
     return (
         <div className='mainDiv-Details'>
             <div className='btn-div'>
@@ -51,8 +47,10 @@ const Details = () => {
             {showModal && (
                 <div className="modal">
                     <div className="modal-content">
-                        <button className="close" onClick={closeModal}>Close Window</button>
-                        <p>Now you changed a task status! Better will be logout and rest! It's enough for today, you did a really good job!!</p>
+                        <button className="close" onClick={closeModal}>&times;</button>
+                        <h3>Now you changed a task {taskId} status! Better will be logout and rest! It's enough for today, you did a really good job!!</h3>
+                        <Link className='btn' to={'/'}>Logout</Link>
+
                     </div>
                 </div>
             )}

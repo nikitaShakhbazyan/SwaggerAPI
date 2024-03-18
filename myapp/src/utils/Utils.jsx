@@ -5,7 +5,6 @@ import Login from '../pages/LoginPage/Login'
 import NotFound from '../pages/NotFound'
 import Details from '../pages/Details/Details'
 import './Utils.css'
-import Main from '../pages/Main/Main'
 
 const Utils = () => {
   return (
