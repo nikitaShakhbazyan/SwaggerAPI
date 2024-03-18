@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getData } from './fetch/fetchData';
+import { getData } from '../../fetch/fetchData';
+import { Link } from 'react-router-dom';
+import './Details.css'
+
 
 const Details = () => {
     const { taskId } = useParams();
@@ -22,7 +25,10 @@ const Details = () => {
     }, [taskId]);
 
     return (
-        <div>
+        <div className='mainDiv-Details'>
+            <Link to={'/'} >Back to SignIn</Link>
+            <Link to={'/main'} >Back to Main</Link>
+
             Details of {taskId} id
             {task && (
                 <div key={task.id}>

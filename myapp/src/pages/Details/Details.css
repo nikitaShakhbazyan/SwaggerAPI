@@ -1,0 +1,8 @@
+.mainDiv-Details {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+    height: 500px;
+}

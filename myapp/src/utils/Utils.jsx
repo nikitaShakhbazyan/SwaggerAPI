@@ -3,8 +3,8 @@ import {Route,Routes} from 'react-router-dom'
 import FetchingAllData from '../pages/FetchingAllData/FetchingAllData'
 import Login from '../pages/LoginPage/Login'
 import NotFound from '../pages/NotFound'
-import Details from '../Details'
-
+import Details from '../pages/Details/Details'
+import './Utils.css'
 
 const Utils = () => {
   return (
