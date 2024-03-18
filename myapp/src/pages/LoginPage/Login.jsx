@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'
 
-const Login = ({isAuth}) => {
+const Login = ({ isAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,8 +25,8 @@ const Login = ({isAuth}) => {
       const { accessToken } = await response.json();
 
       localStorage.setItem('accessToken', accessToken);
+      isAuth(true);
       console.log(accessToken)
-      isAuth(true)
     } catch (error) {
       setError('Authentication failed. Please check your credentials.');
     }
